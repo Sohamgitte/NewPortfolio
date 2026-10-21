@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg-base: #ffffff;
+    --color-bg-surface: #f8fafc;
+    --color-bg-card: #ffffff;
+    --color-accent: #0f172a;
+  }
+
+  html {
+    color-scheme: light;
+    background-color: #ffffff;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #0f172a;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Headings with bespoke handcrafted Bricolage Grotesque */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bricolage Grotesque', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.025em;
+  }
+
+  /* Accessible focus indicators */
+  *:focus-visible {
+    outline: 2px solid rgba(15, 23, 42, 0.4);
+    outline-offset: 2px;
+  }
+
+  /* Clean subtle custom scrollbars */
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f8fafc;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+@layer utilities {
+  /* Handcrafted clean card */
+  .card-clean {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.02);
+  }
+
+  .card-clean-hover {
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card-clean-hover:hover {
+    border-color: rgba(203, 213, 225, 1);
+    box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.07), 0 6px 12px -4px rgba(15, 23, 42, 0.03);
+    transform: translateY(-2px);
+  }
+
+  /* Architectural subtle dot grid */
+  .bg-dot-grid {
+    background-image: radial-gradient(rgba(148, 163, 184, 0.35) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  /* Glass navigation on white background */
+  .glass-nav-light {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  }
+
+  /* Safe area padding for mobile devices */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
+  }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 1rem);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
