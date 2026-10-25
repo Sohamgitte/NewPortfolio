@@ -16,8 +16,8 @@ export const PwaInstallPrompt: React.FC = () => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
 
-      // Check if user previously dismissed prompt in current session
-      const dismissed = sessionStorage.getItem('pwa_prompt_dismissed');
+      // Check if user previously dismissed prompt
+      const dismissed = localStorage.getItem('pwa_prompt_dismissed');
       if (!dismissed) {
         setIsVisible(true);
       }
@@ -39,6 +39,7 @@ export const PwaInstallPrompt: React.FC = () => {
 
     if (outcome === 'accepted') {
       console.log('User installed SohamLabs PWA');
+      localStorage.setItem('pwa_prompt_dismissed', 'true');
     }
 
     setDeferredPrompt(null);
@@ -46,14 +47,14 @@ export const PwaInstallPrompt: React.FC = () => {
   };
 
   const handleDismiss = () => {
-    sessionStorage.setItem('pwa_prompt_dismissed', 'true');
+    localStorage.setItem('pwa_prompt_dismissed', 'true');
     setIsVisible(false);
   };
 
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:w-96 z-50 animate-fade-in">
+    <div className="fixed bottom-20 sm:bottom-6 left-4 right-4 sm:left-auto sm:right-6 sm:w-96 z-50 animate-fade-in">
       <div className="p-4 rounded-2xl bg-white/95 border border-neutral-200/90 backdrop-blur-xl shadow-2xl flex items-start gap-3">
         <div className="w-10 h-10 rounded-xl bg-neutral-900 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
           <Smartphone className="w-5 h-5" />

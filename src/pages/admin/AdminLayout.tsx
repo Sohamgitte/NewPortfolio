@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { usePortfolio } from '../../context/PortfolioContext';
+import { PwaInstallPrompt } from '../../components/public/PwaInstallPrompt';
 
 export const AdminLayout: React.FC = () => {
   const { user, logout, isConfigured } = useAuth();
@@ -300,6 +301,8 @@ export const AdminLayout: React.FC = () => {
         })}
       </nav>
 
+      {/* Admin PWA prompt (only for admin, not public visitors) */}
+      <PwaInstallPrompt />
     </div>
   );
 };

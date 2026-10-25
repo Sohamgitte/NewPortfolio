@@ -11,7 +11,6 @@ import { Achievements } from '../components/public/Achievements';
 import { Resume } from '../components/public/Resume';
 import { Contact } from '../components/public/Contact';
 import { Footer } from '../components/public/Footer';
-import { PwaInstallPrompt } from '../components/public/PwaInstallPrompt';
 import { usePortfolio } from '../context/PortfolioContext';
 
 export const Home: React.FC = () => {
@@ -49,7 +48,6 @@ export const Home: React.FC = () => {
       </main>
 
       <Footer />
-      <PwaInstallPrompt />
     </div>
   );
 };
